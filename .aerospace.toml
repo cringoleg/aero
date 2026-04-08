@@ -1,0 +1,149 @@
+config-version = 2
+
+# -----------------------------------------------------------
+# General
+# -----------------------------------------------------------
+after-startup-command = []
+start-at-login = false
+
+# Normalizations flatten nested containers and fix orientation
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Padding around stacked (accordion) windows
+accordion-padding = 30
+
+# Default tiling layout: binary space partitioning
+default-root-container-layout = 'tiles'
+
+# Wide monitors split horizontal, tall monitors split vertical
+default-root-container-orientation = 'auto'
+
+# Mouse jumps to center of monitor when focus changes between displays
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# Don't auto-unhide apps hidden with Cmd+H
+automatically-unhide-macos-hidden-apps = false
+
+# Keep these workspaces alive even when empty
+persistent-workspaces = [
+    "1", "2", "3", "4",
+    "Q", "W", "E", "R", "T",
+    "A", "S", "D", "F", "G",
+    "Z", "X", "C", "V", "B"
+]
+
+on-mode-changed = []
+
+[key-mapping]
+    preset = 'qwerty'
+
+# -----------------------------------------------------------
+# Gaps (set to 0 for no gaps)
+# -----------------------------------------------------------
+[gaps]
+    inner.horizontal = 0
+    inner.vertical   = 0
+    outer.left       = 0
+    outer.bottom     = 0
+    outer.top        = 0
+    outer.right      = 0
+
+# -----------------------------------------------------------
+# Main keybindings (Hyper = Caps Lock via Hyperkey app)
+# Hyper = ctrl-shift-cmd-alt
+# -----------------------------------------------------------
+[mode.main.binding]
+
+    # Layout toggles
+    ctrl-shift-cmd-alt-slash = 'layout tiles horizontal vertical'
+    ctrl-shift-cmd-alt-comma = 'layout accordion horizontal vertical'
+
+    # Focus windows (vim-style)
+    ctrl-shift-cmd-alt-h = 'focus left'
+    ctrl-shift-cmd-alt-j = 'focus down'
+    ctrl-shift-cmd-alt-k = 'focus up'
+    ctrl-shift-cmd-alt-l = 'focus right'
+
+    # Move/swap windows (brackets + semicolon/quote — near HJKL)
+    ctrl-shift-cmd-alt-leftSquareBracket  = 'move left'
+    ctrl-shift-cmd-alt-rightSquareBracket = 'move right'
+    ctrl-shift-cmd-alt-semicolon          = 'move down'
+    ctrl-shift-cmd-alt-quote              = 'move up'
+
+    # Resize focused window
+    ctrl-shift-cmd-alt-minus = 'resize smart -50'
+    ctrl-shift-cmd-alt-equal = 'resize smart +50'
+
+    # Fullscreen toggle
+    ctrl-shift-cmd-alt-f = 'fullscreen'
+
+    # Re-balance all windows to equal sizes
+    ctrl-shift-cmd-alt-b = 'balance-sizes'
+
+    # -------------------------------------------------------
+    # Switch to workspace (Hyper + key)
+    # -------------------------------------------------------
+    ctrl-shift-cmd-alt-1 = 'workspace 1'
+    ctrl-shift-cmd-alt-2 = 'workspace 2'
+    ctrl-shift-cmd-alt-3 = 'workspace 3'
+    ctrl-shift-cmd-alt-4 = 'workspace 4'
+    ctrl-shift-cmd-alt-q = 'workspace Q'
+    ctrl-shift-cmd-alt-w = 'workspace W'
+    ctrl-shift-cmd-alt-e = 'workspace E'
+    ctrl-shift-cmd-alt-r = 'workspace R'
+    ctrl-shift-cmd-alt-t = 'workspace T'
+    ctrl-shift-cmd-alt-a = 'workspace A'
+    ctrl-shift-cmd-alt-s = 'workspace S'
+    ctrl-shift-cmd-alt-d = 'workspace D'
+    ctrl-shift-cmd-alt-g = 'workspace G'
+    ctrl-shift-cmd-alt-z = 'workspace Z'
+    ctrl-shift-cmd-alt-x = 'workspace X'
+    ctrl-shift-cmd-alt-c = 'workspace C'
+    ctrl-shift-cmd-alt-v = 'workspace V'
+
+    # -------------------------------------------------------
+    # Send window to workspace (Ctrl + Cmd + key)
+    # -------------------------------------------------------
+    ctrl-cmd-1 = 'move-node-to-workspace 1'
+    ctrl-cmd-2 = 'move-node-to-workspace 2'
+    ctrl-cmd-3 = 'move-node-to-workspace 3'
+    ctrl-cmd-4 = 'move-node-to-workspace 4'
+    ctrl-cmd-q = 'move-node-to-workspace Q'
+    ctrl-cmd-w = 'move-node-to-workspace W'
+    ctrl-cmd-e = 'move-node-to-workspace E'
+    ctrl-cmd-r = 'move-node-to-workspace R'
+    ctrl-cmd-t = 'move-node-to-workspace T'
+    ctrl-cmd-a = 'move-node-to-workspace A'
+    ctrl-cmd-s = 'move-node-to-workspace S'
+    ctrl-cmd-d = 'move-node-to-workspace D'
+    ctrl-cmd-g = 'move-node-to-workspace G'
+    ctrl-cmd-z = 'move-node-to-workspace Z'
+    ctrl-cmd-x = 'move-node-to-workspace X'
+    ctrl-cmd-c = 'move-node-to-workspace C'
+    ctrl-cmd-v = 'move-node-to-workspace V'
+
+    # Toggle between last two workspaces
+    ctrl-shift-cmd-alt-tab = 'workspace-back-and-forth'
+
+    # Move workspace to next monitor
+    ctrl-shift-cmd-alt-backtick = 'move-workspace-to-monitor --wrap-around next'
+
+    # Enter service mode (Hyper + period)
+    ctrl-shift-cmd-alt-period = 'mode service'
+
+# -----------------------------------------------------------
+# Service mode — for less common actions
+# Press Hyper+. to enter, Esc to exit
+# -----------------------------------------------------------
+[mode.service.binding]
+    esc = ['reload-config', 'mode main']
+    r = ['flatten-workspace-tree', 'mode main']    # Reset layout
+    f = ['layout floating tiling', 'mode main']    # Toggle float/tile
+    backspace = ['close-all-windows-but-current', 'mode main']
+
+    # Join windows (Hyper + direction in service mode)
+    ctrl-shift-cmd-alt-h = ['join-with left', 'mode main']
+    ctrl-shift-cmd-alt-j = ['join-with down', 'mode main']
+    ctrl-shift-cmd-alt-k = ['join-with up', 'mode main']
+    ctrl-shift-cmd-alt-l = ['join-with right', 'mode main']
