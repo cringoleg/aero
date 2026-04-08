@@ -2,7 +2,7 @@
 
 This is my own config for aerospace - keyboard-driven tiling window manager for macOS with instant workspace switching. No animations, no SIP disabling.
 
-It is configured to use capslock key, which in turn, is changed to work as hyper-key (shift + option + ctrl + cmd). This enables collision free shortcut usage - macos does not use hyper combinations AFAIK. You also don't have wait for the focus to catch up to your switching - which was the main headache for me. Praise the aerospace contributors!!!
+It is configured to use capslock key, which in turn, is changed to work as hyper-key (shift + option + ctrl + cmd). This enables collision free shortcut usage - macos does not use hyper combinations AFAIK. You also don't have to wait for the focus to catch up to your switching - which was the main headache for me. Praise the aerospace contributors!!!
 
 Project homepage: https://github.com/nikitabobko/AeroSpace
 
