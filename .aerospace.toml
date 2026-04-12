@@ -98,7 +98,7 @@ on-mode-changed = []
     ctrl-shift-cmd-alt-g = 'workspace G'
     ctrl-shift-cmd-alt-z = 'workspace Z'
 
-    # Open new iTerm2 window in current workspace
+    # Open new Ghostty window in current workspace
     ctrl-shift-cmd-alt-n = 'exec-and-forget open -na Ghostty'
 
     # Open Claude in Brave
