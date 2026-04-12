@@ -55,9 +55,8 @@ on-mode-changed = []
 # -----------------------------------------------------------
 [mode.main.binding]
 
-    # Layout toggles
+    # Toggle split direction (horizontal/vertical)
     ctrl-shift-cmd-alt-slash = 'layout tiles horizontal vertical'
-    ctrl-shift-cmd-alt-comma = 'layout accordion horizontal vertical'
 
     # Focus windows (vim-style)
     ctrl-shift-cmd-alt-h = 'focus left'
@@ -98,6 +97,12 @@ on-mode-changed = []
     ctrl-shift-cmd-alt-d = 'workspace D'
     ctrl-shift-cmd-alt-g = 'workspace G'
     ctrl-shift-cmd-alt-z = 'workspace Z'
+
+    # Open new iTerm2 window in current workspace
+    ctrl-shift-cmd-alt-n = 'exec-and-forget open -na Ghostty'
+
+    # Open Claude in Brave
+    ctrl-shift-cmd-alt-o = 'exec-and-forget open -na "Brave Browser" --args --new-window https://claude.ai'
     ctrl-shift-cmd-alt-x = 'workspace X'
     ctrl-shift-cmd-alt-c = 'workspace C'
     ctrl-shift-cmd-alt-v = 'workspace V'
@@ -147,3 +152,18 @@ on-mode-changed = []
     ctrl-shift-cmd-alt-j = ['join-with down', 'mode main']
     ctrl-shift-cmd-alt-k = ['join-with up', 'mode main']
     ctrl-shift-cmd-alt-l = ['join-with right', 'mode main']
+
+# -----------------------------------------------------------
+# Window rules — float apps that shouldn't tile
+# -----------------------------------------------------------
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.docker.docker'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.googlecode.iterm2'
+run = 'layout tiling'
