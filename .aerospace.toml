@@ -59,10 +59,10 @@ on-mode-changed = []
     ctrl-shift-cmd-alt-slash = 'layout tiles horizontal vertical'
 
     # Focus windows (vim-style)
-    ctrl-shift-cmd-alt-h = 'focus left'
-    ctrl-shift-cmd-alt-j = 'focus down'
-    ctrl-shift-cmd-alt-k = 'focus up'
-    ctrl-shift-cmd-alt-l = 'focus right'
+    ctrl-shift-cmd-alt-left = 'focus left'
+    ctrl-shift-cmd-alt-down = 'focus down'
+    ctrl-shift-cmd-alt-up = 'focus up'
+    ctrl-shift-cmd-alt-right = 'focus right'
 
     # Move/swap windows (brackets + semicolon/quote — near HJKL)
     ctrl-shift-cmd-alt-leftSquareBracket  = 'move left'
@@ -167,3 +167,9 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.googlecode.iterm2'
 run = 'layout tiling'
+
+[[on-window-detected]]
+if.app-id="com.mitchellh.ghostty"
+run= [
+  "layout tiling",
+]
